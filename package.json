@@ -1,0 +1,44 @@
+{
+  "name": "DiscordSpeechBot3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "register_commands": "ts-node src/register_interactions.ts",
+    "dev": "nodemon src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.8.0",
+    "@discordjs/rest": "^1.5.0",
+    "@discordjs/voice": "^0.11.0",
+    "@distube/soundcloud": "^1.3.0",
+    "@distube/spotify": "^1.5.1",
+    "@distube/yt-dlp": "^1.1.3",
+    "bufferutil": "^4.0.7",
+    "discord-api-types": "^0.37.25",
+    "discord-speech-recognition": "^3.1.1",
+    "discord.js": "^14.3.0",
+    "distube": "^4.0.4",
+    "dotenv": "^16.0.3",
+    "erlpack": "github:discord/erlpack",
+    "sodium": "^3.0.2",
+    "sucrase": "^3.29.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "utf-8-validate": "^5.0.10",
+    "zlib-sync": "^0.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "distube@4.0.4": "patches/distube@4.0.4.patch"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/dist/index.js b/dist/index.js
+index 8e827f509ed242cdfe8f7221e1a83904fc458cb3..ae145055ed498ce5e670e99b34047811c0de6345 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -807,7 +807,7 @@ var DisTubeVoice = class extends import_tiny_typed_emitter.TypedEmitter {
+       else
+         throw new DisTubeError("VOICE_MISSING_PERMS");
+     }
+-    this.connection = __privateMethod(this, _join, join_fn).call(this, channel);
++    this.connection = this.voices.connection || __privateMethod(this, _join, join_fn).call(this, channel);
+     __privateSet(this, _channel, channel);
+     __privateMethod(this, _br, br_fn).call(this);
+   }
