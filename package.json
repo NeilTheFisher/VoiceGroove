@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "register_commands": "ts-node src/register_interactions.ts",
+    "push_interactions": "ts-node src/push_interactions.ts",
     "dev": "nodemon src/index.ts",
     "start": "ts-node src/index.ts"
   },
