@@ -1,8 +1,12 @@
 import { VoiceMessage } from "discord-speech-recognition";
 import { Client } from "discord.js";
 import { distube } from "../../..";
+import type { SpeechCommandCallback } from "../../../types";
 
-export function play(client: Client, msg: VoiceMessage) {
+export const play: SpeechCommandCallback = (
+  client: Client,
+  msg: VoiceMessage
+) => {
   if (!msg.content) return;
 
   console.log("playing", msg.content);
@@ -22,12 +26,12 @@ export function play(client: Client, msg: VoiceMessage) {
     //   console.log("query", query);
     // });
 
-    // distube.once("playSong", (queue, song) => {
-    //   console.log("song", song);
-    // });
+    distube.once("playSong", (queue, song) => {
+      console.log("song", { name: song.name, url: song.url }); // todo make this a discord message
+    });
 
-    // !hacky stuff... modify distube's connection to be the same as the one before.
-    // !distube normally connects on it's own but the bot is already connected to a voice channel.
+    // ! hacky stuff... modify distube's connection to be the one that already exists.
+    // ! distube normally connects on it's own but the bot is already connected to a voice channel because of voice commands.
     /* 
       replaced distube/dist/index.js:810
       ``this.connection = __privateMethod(this, _join, join_fn).call(this, channel);``
@@ -37,4 +41,4 @@ export function play(client: Client, msg: VoiceMessage) {
     // @ts-ignore
     distube.voices.connection = msg.connection;
   }
-}
+};

@@ -11,6 +11,6 @@ export function registerInteractions(client: Client) {
   client.on("interactionCreate", async (interaction) => {
     if (!interaction.isCommand()) return;
 
-    interactionCommands[interaction.commandName](interaction);
+    interactionCommands[interaction.commandName]?.(interaction);
   });
 }

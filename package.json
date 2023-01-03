@@ -6,7 +6,8 @@
   "scripts": {
     "push_interactions": "ts-node src/push_interactions.ts",
     "dev": "nodemon src/index.ts",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "pm2": "pm2 start npm --name \"DiscordSpeechBot\" -- run \"start\""
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "distube": "^4.0.4",
     "dotenv": "^16.0.3",
     "erlpack": "github:discord/erlpack",
+    "pm2": "^5.2.2",
     "sodium": "^3.0.2",
     "sucrase": "^3.29.0",
     "ts-node": "^10.9.1",

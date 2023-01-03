@@ -2,21 +2,10 @@ import {
   DiscordGatewayAdapterCreator,
   joinVoiceChannel,
 } from "@discordjs/voice";
-import {
-  CacheType,
-  ChatInputCommandInteraction,
-  GuildMember,
-  Interaction,
-  MessageContextMenuCommandInteraction,
-  UserContextMenuCommandInteraction,
-} from "discord.js";
+import { GuildMember } from "discord.js";
+import type { CommandCallback } from "../types";
 
-export async function join(
-  interaction:
-    | ChatInputCommandInteraction<CacheType>
-    | MessageContextMenuCommandInteraction<CacheType>
-    | UserContextMenuCommandInteraction
-) {
+export const join: CommandCallback = async (interaction) => {
   if (
     interaction.member instanceof GuildMember &&
     interaction.member.voice.channel
@@ -28,10 +17,10 @@ export async function join(
       selfDeaf: false,
       // selfMute: true,
       adapterCreator: channel.guild
-        .voiceAdapterCreator as DiscordGatewayAdapterCreator,
+        .voiceAdapterCreator as unknown as DiscordGatewayAdapterCreator, // todo check if this is correct
     });
     await interaction.reply("Joined voice channel");
   } else {
     await interaction.reply("Join a voice channel and then try that again!");
   }
-}
+};

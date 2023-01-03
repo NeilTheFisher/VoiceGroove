@@ -1,12 +1,9 @@
-import { VoiceMessage } from "discord-speech-recognition";
-import { Client } from "discord.js";
 import { distube } from "../../..";
+import { SpeechCommandCallback } from "../../../types";
 
-export function autoplay(client: Client, msg: VoiceMessage) {
-  if (!msg.content) return;
-
+export const autoplay: SpeechCommandCallback = (client, msg) => {
   const queue = distube.getQueue(msg.guild!);
   queue?.toggleAutoplay();
 
   console.log("autoplay", queue?.autoplay);
-}
+};

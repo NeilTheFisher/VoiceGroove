@@ -16,10 +16,15 @@ import { registerInteractions } from "./commands";
 
 import "./push_interactions";
 
+if (!process.env.DISCORD_TOKEN || !process.env.WITAI_KEY) {
+  console.error("Missing DISCORD_TOKEN or WITAI_KEY in env.");
+  process.exit(1);
+}
+
 export const client = new Client({
   intents: [
     GatewayIntentBits.GuildVoiceStates,
-    GatewayIntentBits.GuildMessages,
+    // GatewayIntentBits.GuildMessages,
     GatewayIntentBits.Guilds,
   ],
 });
@@ -50,3 +55,10 @@ client.on("ready", () => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
+
+process.on("uncaughtException", (err) => {
+  console.error("uncaughtException", err);
+});
+process.on("unhandledRejection", (err) => {
+  console.error("unhandledRejection", err);
+});
