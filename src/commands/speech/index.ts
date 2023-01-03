@@ -17,6 +17,7 @@ export function registerSpeechCommands(client: Client) {
     //
     "volume": volume,
     //
+    "seek": forward,
     "fast forward": forward,
     "forward": forward,
     "rewind": rewind,
