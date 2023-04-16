@@ -14,7 +14,9 @@ dotenv.config();
 import { registerSpeechCommands } from "./commands/speech";
 import { registerInteractions } from "./commands";
 
-import "./push_interactions";
+console.log("Starting...");
+
+// import "./push_interactions";
 
 if (!process.env.DISCORD_TOKEN || !process.env.WITAI_KEY) {
   console.error("Missing DISCORD_TOKEN or WITAI_KEY in env.");
