@@ -7,6 +7,8 @@ import type {
   UserContextMenuCommandInteraction,
 } from "discord.js";
 
+import { replyErrorHandler } from "./speech/music/errors";
+
 export async function leave(
   interaction:
     | ChatInputCommandInteraction<CacheType>
@@ -16,8 +18,10 @@ export async function leave(
   const connection = getVoiceConnection(interaction.guildId!);
   if (connection) {
     connection.destroy();
-    await interaction.reply("Left voice channel");
+    await interaction.reply("Left voice channel").catch(replyErrorHandler);
   } else {
-    await interaction.reply("Bot isn't in voice channel!");
+    await interaction
+      .reply("Bot isn't in voice channel!")
+      .catch(replyErrorHandler);
   }
 }

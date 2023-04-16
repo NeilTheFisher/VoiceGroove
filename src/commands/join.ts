@@ -4,6 +4,7 @@ import {
 } from "@discordjs/voice";
 import { GuildMember } from "discord.js";
 import type { CommandCallback } from "../types";
+import { replyErrorHandler } from "./speech/music/errors";
 
 export const join: CommandCallback = async (interaction) => {
   if (
@@ -19,8 +20,10 @@ export const join: CommandCallback = async (interaction) => {
       adapterCreator: channel.guild
         .voiceAdapterCreator as unknown as DiscordGatewayAdapterCreator, // todo check if this is correct
     });
-    await interaction.reply("Joined voice channel");
+    await interaction.reply("Joined voice channel").catch(replyErrorHandler);
   } else {
-    await interaction.reply("Join a voice channel and then try that again!");
+    await interaction
+      .reply("Join a voice channel and then try that again!")
+      .catch(replyErrorHandler);
   }
 };

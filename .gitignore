@@ -8,3 +8,5 @@ logs
 
 # Env
 .env*
+
+.vscode

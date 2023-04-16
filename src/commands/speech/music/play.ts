@@ -3,6 +3,8 @@ import { Client } from "discord.js";
 import { distube } from "../../..";
 import type { SpeechCommandCallback } from "../../../types";
 
+import { playErrorHandler } from "./errors";
+
 export const play: SpeechCommandCallback = (
   client: Client,
   msg: VoiceMessage
@@ -18,7 +20,7 @@ export const play: SpeechCommandCallback = (
     // leave voice channel
     // msg.connection.destroy();
 
-    distube.play(voiceChannel, msg.content!);
+    distube.play(voiceChannel, msg.content!).catch(playErrorHandler);
 
     // distube.on("searchResult", (message, results, query) => {
     //   console.log("message", message);
