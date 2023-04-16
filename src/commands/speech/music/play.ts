@@ -26,10 +26,6 @@ export const play: SpeechCommandCallback = (
     //   console.log("query", query);
     // });
 
-    distube.once("playSong", (queue, song) => {
-      console.log("song", { name: song.name, url: song.url }); // todo make this a discord message
-    });
-
     // ! hacky stuff... modify distube's connection to be the one that already exists.
     // ! distube normally connects on it's own but the bot is already connected to a voice channel because of voice commands.
     /* 

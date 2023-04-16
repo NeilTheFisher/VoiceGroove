@@ -48,6 +48,10 @@ export const distube = new DisTube(client, {
   leaveOnStop: false,
 });
 
+distube.on("playSong", (queue, song) => {
+  console.log("song", { name: song.name, url: song.url }); // todo make this a discord message and move it somewhere else
+});
+
 registerInteractions(client);
 
 registerSpeechCommands(client);
