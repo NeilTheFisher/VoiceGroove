@@ -20,7 +20,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: 🚚 Deploy code
-      uses: appleboy/ssh-action@v0.1.10
+      uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.SERVERHOST }}
         username: ${{ secrets.SERVERUSERNAME }}
