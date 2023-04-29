@@ -29,4 +29,4 @@ jobs:
         source: ./
         target: ~/VoiceGroove
         script: |
-          cd ~/VoiceGroove && git checkout . && git pull && npm run pm2
+          cd ~/VoiceGroove && npm run pm2
