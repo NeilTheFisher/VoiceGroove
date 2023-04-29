@@ -20,18 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: "Peatreat's Server"
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-
-    - name: 📂 Sync files
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.SERVERHOST }}
-        username: ${{ secrets.SERVERUSERNAME }}
-        password: ${{ secrets.SERVERPASSWORD }}
-        port: 22
-        source: ./
-        target: ~/VoiceGroove
+#     - name: 🚚 Get latest code
+#       uses: actions/checkout@v3
         
     - name: 🚀 Run
       uses: appleboy/ssh-action@v0.1.10
@@ -41,5 +31,4 @@ jobs:
         password: ${{ secrets.SERVERPASSWORD }}
         port: 22
         script: |
-          cd ~/VoiceGroove
-          pnpm pm2
+          cd ~/VoiceGroove && git checkout . && git pull && npm run pm2
