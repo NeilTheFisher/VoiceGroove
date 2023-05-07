@@ -16,7 +16,7 @@ import { registerInteractions } from "./commands";
 
 console.log("Starting...");
 
-// import "./push_interactions";
+import "./push_interactions";
 
 if (!process.env.DISCORD_TOKEN || !process.env.WITAI_KEY) {
   console.error("Missing DISCORD_TOKEN or WITAI_KEY in env.");
