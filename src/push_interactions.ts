@@ -23,6 +23,14 @@ const commands: RESTPutAPIApplicationCommandsJSONBody = [
     description: "Joins voice channel and starts speech recognition",
   },
   {
+    name: "stop",
+    description: "Stops the currently playing song in the voice channel.",
+  },
+  {
+    name: "skip",
+    description: "Skips the current song.",
+  },
+  {
     name: "leave",
     description: "Leaves voice channel",
   },
