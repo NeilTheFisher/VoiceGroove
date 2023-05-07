@@ -15,10 +15,6 @@ export const play: CommandCallback = async (interaction) => {
 
     distube.play(voiceChannel, song).catch(playErrorHandler);
 
-    // todo this might be a problem - having distube joining the voice channel on it's own. Might have to use the join function I created.
-    // @ts-ignore
-    distube.voices.connection = getVoiceConnection(voiceChannel.guild.id);
-
     await interaction
       .reply(`Playing ${song} in ${voiceChannel.name}!`)
       .catch(replyErrorHandler);

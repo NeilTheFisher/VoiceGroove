@@ -1,3 +1,7 @@
+function joinErrorHandler(error: any) {
+  console.error("Join Error:", error);
+}
+
 function playErrorHandler(error: any) {
   console.error("Play Error:", error);
 }
@@ -15,6 +19,7 @@ function replyErrorHandler(error: any) {
 }
 
 export {
+  joinErrorHandler,
   playErrorHandler,
   skipErrorHandler,
   stopErrorHandler,
