@@ -37,4 +37,4 @@ jobs:
         password: ${{ secrets.SERVERPASSWORD }}
         port: 22
         script: |
-          cd ~/VoiceGroove && npm run pm2
+          cd ~/VoiceGroove && pnpm i && pnpm pm2
