@@ -1,5 +1,4 @@
 import { GuildMember } from "discord.js";
-import { getVoiceConnection } from "@discordjs/voice";
 import { distube } from "..";
 import { CommandCallback } from "../types";
 import { playErrorHandler, replyErrorHandler } from "./speech/music/errors";

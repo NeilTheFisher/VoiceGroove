@@ -5,18 +5,16 @@ import type { SpeechCommandCallback } from "../../../types";
 
 import { playErrorHandler } from "./errors";
 
-export const play: SpeechCommandCallback = (
+export const play: SpeechCommandCallback = async (
   client: Client,
   msg: VoiceMessage
 ) => {
   if (!msg.content) return;
 
   console.log("playing", msg.content);
-  
-  // play music in channel
 
   const voiceChannel = msg.member?.voice.channel;
   if (voiceChannel) {
-    distube.play(voiceChannel, msg.content!).catch(playErrorHandler);
+    await distube.play(voiceChannel, msg.content!).catch(playErrorHandler);
   }
 };

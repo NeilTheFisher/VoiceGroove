@@ -1,4 +1,4 @@
-import { distube } from ".."
+import { distube } from "..";
 import { GuildMember } from "discord.js";
 import type { CommandCallback } from "../types";
 import { replyErrorHandler, joinErrorHandler } from "./speech/music/errors";
@@ -10,8 +10,10 @@ export const join: CommandCallback = async (interaction) => {
   ) {
     const channel = interaction.member.voice.channel;
 
-    const connection = await distube.voices.join(channel).catch(joinErrorHandler);
-    
+    const connection = await distube.voices
+      .join(channel)
+      .catch(joinErrorHandler);
+
     if (connection) {
       connection.setSelfMute(false);
       connection.setSelfDeaf(false);

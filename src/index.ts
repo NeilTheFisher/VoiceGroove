@@ -53,7 +53,6 @@ export const distube = new DisTube(client, {
   leaveOnEmpty: false,
   leaveOnFinish: false,
   leaveOnStop: false,
-  joinNewVoiceChannel: false,
 });
 
 distube.on("playSong", (queue, song) => {
