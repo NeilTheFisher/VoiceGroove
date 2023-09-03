@@ -37,15 +37,23 @@ addSpeechEvent(client, {
 });
 
 export const distube = new DisTube(client, {
-  plugins: [new SoundCloudPlugin(), new SpotifyPlugin(), new YtDlpPlugin()],
+  plugins: [
+    new SoundCloudPlugin(),
+    new SpotifyPlugin(),
+    new YtDlpPlugin({
+      update: true,
+    }),
+  ],
   ytdlOptions: {
     quality: "highestaudio",
   },
+  nsfw: true,
   searchSongs: 5,
   searchCooldown: 30,
   leaveOnEmpty: false,
   leaveOnFinish: false,
   leaveOnStop: false,
+  joinNewVoiceChannel: false,
 });
 
 distube.on("playSong", (queue, song) => {
